@@ -2,3 +2,5 @@
 lab-1/pdf_cache_dir
 lab-3/cache
 *.sqlite
+lab-2/data/*
+*.parquet
