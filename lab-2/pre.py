@@ -7,7 +7,6 @@ from pathlib import Path
 from tqdm import tqdm
 
 
-PARQUET = ["mpd.part1.parquet", "mpd.part2.parquet"]
 FINAL_PARQUET = "mpd.parquet"
 
 def load(files):
@@ -45,9 +44,6 @@ def main(count=4):
 
         df = load(slice_files)
         df.to_parquet(parquet_path, index=False)
-
-        del df
-        gc.collect()
 
     dfs = [pd.read_parquet(p) for p in parquet_files]
     full_df = pd.concat(dfs, ignore_index=True)
